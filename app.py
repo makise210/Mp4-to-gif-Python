@@ -8,11 +8,13 @@ root = tk.Tk()
 root.withdraw()
 
 file = filedialog.askopenfilename()
-#file_name = file.split('/')[-1]
+data = input("Please enter 0.1~1.0: ")
+size = float(data)
 
-Clip = VideoFileClip(file).resize(0.4)
+if(size):
+    Clip = VideoFileClip(file).resize(size)
+    gif = Clip.write_gif(r"output.gif", fps = 24)
 
-gif = Clip.write_gif(r"output.gif", fps = 24)
 
 del gif
 del Clip
